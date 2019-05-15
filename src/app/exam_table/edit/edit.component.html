@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{isNew ? 'New Event' : 'Edit Event'}}</h1>
+<button *ngIf="!isNew" mat-button (click)="deleteData()">Delete</button>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+        <label *ngIf="!isNew">
+            Event ID:
+            <input type="text" formControlName="eventId" disabled>
+        </label>
+        <label>
+            Cow ID:
+            <input type="text" formControlName="cowId">
+        </label>
+        <label>
+            Event Type:
+            <p-dropdown [options]="types" formControlName="type"></p-dropdown>
+        </label>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="saveData()">Save</button>
+</div>
